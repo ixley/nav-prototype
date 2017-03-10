@@ -1,0 +1,40 @@
+@charset "utf-8";
+
+@import "normalize";
+*,
+*::before,
+*::after { 
+  background-repeat: no-repeat;
+}
+
+@import "_mixins/mixins";
+@import "variables"; // Custom variables for Bootstrap
+@import "bootstrap";
+
+@import "base";
+@import "layout";
+@import "sidebar";
+@import "_components/fixed-nav-bar";
+@import "_components/user-badge";
+@import "_components/medical-profile-box";
+
+
+body {
+  color: #333;
+}
+
+ul.pills {
+  display: inline;
+  padding-left: 0;
+  li {
+    display: inline-block;
+    margin: 0 5px 5px 0;
+    background-color: $gray-lighter;
+    color: $gray;
+    border-radius: 2px;
+    padding: 4px 6px;
+    i {
+      color: $gray-light;
+    }
+  }
+}

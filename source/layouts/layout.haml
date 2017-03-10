@@ -1,0 +1,51 @@
+!!! 5
+%html(lang='en')
+  = partial "layouts/head"
+  %body{:class => page_classes}
+    -# = partial "layouts/prototype-settings"   
+    #page-wrapper
+      = partial "layouts/sidebar"
+      .page-content-wrapper
+        .nav-toggle__dimmer
+        .fixed-top-bar.is-visible
+          .fixed-top-bar__container
+            .nav-toggle
+              %button.nav-toggle__btn.fixed-top-bar__btn Menu
+            /Primary
+            /.user-badge.user-badge--primary
+            /  %img.user-badge__image{src: "/images/finn.png", width: "60px", height: "60px"}
+            /  %p.user-badge__name 
+            /    Finn the Member
+            / Acting as
+            / .user-badge.user-badge--acting-as
+            /   %img.user-badge__image{src: "/images/finn.png", width: "60px", height: "60px"}
+            /   %p.user-badge__name 
+            /     %span.user-badge__label Acting as:
+            /     Finn the Member
+            / Viewing
+            -# .user-badge.user-badge--viewing
+            -#   %img.user-badge__image{src: "/images/finn.png", width: "60px", height: "60px"}
+            -#   %p.user-badge__name 
+            -#     %span.user-badge__label Viewing:
+            -#     Finn the Member
+
+            .medical-profile-box__toggle
+              %button.medical-profile-box__toggle-btn.fixed-top-bar__btn Profile    
+          = partial "layouts/medical-profile-box"
+        .page-content
+          / this is the wrapper for the content 
+          .page-content-inner.container-fluid
+            = partial "layouts/main"
+        != yield
+
+    :javascript
+      $(".nav-toggle__btn").click(function(){
+        $("#page-wrapper").addClass("sidebar-nav--open");
+      });
+      $(".nav-toggle__dimmer").click(function(){
+        $("#page-wrapper").removeClass("sidebar-nav--open");
+      });
+      $(".medical-profile-box__toggle-btn").click(function(){
+        $(".medical-profile-box").toggleClass("is-visible");
+        $(this).toggleClass("is-active");
+      })

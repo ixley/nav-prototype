@@ -1,0 +1,285 @@
+//
+// Variables
+// --------------------------------------------------
+// Customized Bootstrap variables
+// ### Default categories are left as placeholders to keep the same structure as original
+
+
+// Global values
+// --------------------------------------------------
+
+
+// Grays
+// -------------------------
+
+// Neutral Grays
+$gray-pale:              #f9f9f9 !default;
+$gray-lighter:           #eee !default;
+$gray-light:             #ccc !default;
+$gray:                  #999 !default;
+$gray-dark:              #555 !default;
+$gray-darker:            #333 !default;
+$gray-border:            #ddd !default;
+
+// Warm Grays
+$gray-warm-pale:          #fcf9f2 !default;
+$gray-warm-lighter:       #eeeae4 !default;
+$gray-warm-light:         #cdcac3 !default;
+$gray-warm:              #9b9892 !default;
+$gray-warm-dark:          #686560 !default;
+$gray-warm-darker:        #35322d !default;
+$gray-warm-border:        #e6e2dc !default;
+
+// Brand colors
+// -------------------------
+
+// Accent colors - RETIRE
+$orangeLight:           #ffb227 !default;
+$orange:                #ff8300 !default;
+$orangeDark:            #d04000 !default;
+$magentaLight:          #e62d88 !default;
+$magenta:               #be0067 !default;
+$magentaDark:           #820039 !default;
+$blueLight:             #00cfe3 !default;
+$blue:                  #009fc9 !default;
+$blueDark:              #006b93 !default;
+$blueDarker:            #00395e !default;
+
+// New Colors
+$teal:                  #33c7c9;
+$teal-pale:              tint($teal, 90%);
+$purple-darker:          #414358;
+$purple-dark:            #504364;
+$purple:                mix($purple-dark, #6400ff, 75%);
+$purple-pale:            tint($purple-dark, 95%);
+$blue:                  #00a0ca;
+$red:                   #ff4921;
+$yellow:                #ffc000;
+$yellow-light:           #ffebca;
+$yellow-lighter:         tint($yellow-light, 50%);
+$yellow-pale:            tint($yellow-light, 70%);
+
+$gray-blue:              #96a7b4;
+$gray-blue-light:         tint($gray-blue, 50);
+
+
+
+// Misc
+// -------------------------
+
+$borderColor:       $gray-border;
+$hover-speed:        .1s !default; // transition duration for link and button hovers
+$hover-delay:       .05s !default; // transition delay for link and button hovers
+
+
+
+
+// Scaffolding
+// -------------------------
+
+
+// Links
+// -------------------------
+
+$link-color:         $blue !default;
+$link-hover-color:   darken($link-color, 15) !default;
+
+
+
+// Typography
+// -------------------------
+
+$font-size-base:        14px !default;
+$font-family-base:      "Proxima Nova", "proxima-nova", Helvetica, Arial, sans-serif !default;
+
+$font-size-h1:          44px;
+$font-size-h2:          30px;
+$font-size-h3:          22px;
+$font-size-h4:          18px;
+$font-size-h5:          16px;
+$font-size-h6:          14px;
+
+$headings-font-family:  "proxima-nova-soft", $font-family-base !default;
+$headings-line-height:  1.2 !default;
+
+$headings-color:        $purple-dark !default;
+
+
+// Iconography
+// -------------------------
+
+
+// Components
+// -------------------------
+// Based on 14px font-size and 1.428 line-height (~20px to start)
+
+$padding-large-vertical:         12px !default;
+$padding-large-horizontal:       20px !default;
+
+$border-radius-base:             3px !default;
+$border-radius-large:            5px !default;
+$border-radius-small:            3px !default;
+
+$component-active-bg:            $blue !default;
+
+
+
+
+
+// Tables
+// -------------------------
+
+
+// Buttons
+// -------------------------
+
+$btn-primary-color:                   #fff !default;
+$btn-primary-bg:                      $blue !default;
+$btn-primary-border:                  darken($btn-primary-bg, 5%) !default;
+
+$btn-super-color:                   #fff !default;
+$btn-super-bg:                      $red !default;
+$btn-super-border:                  darken($btn-super-bg, 5%) !default;
+
+
+// Forms
+// -------------------------
+
+
+// Dropdowns
+// -------------------------
+$dropdown-link-hover-color:      #fff !default;
+$dropdown-link-hover-bg:         $blue !default;
+
+
+// COMPONENT VARIABLES
+// --------------------------------------------------
+
+
+// Z-index master list
+// -------------------------
+// Used for a bird's eye view of components dependent on the z-axis
+// Try to avoid customizing these :)
+
+
+
+// Media queries breakpoints
+// --------------------------------------------------
+
+
+// Grid system
+// --------------------------------------------------
+
+
+// Navbar
+// -------------------------
+$grid-float-breakpoint:              872px !default; // width at which to collapse navbar
+
+
+
+// Navs
+// -------------------------
+
+//== Tabs
+$nav-tabs-border-color:                     transparent !default;
+
+$nav-tabs-link-hover-border-color:          transparent !default;
+
+$nav-tabs-active-link-hover-bg:             $gray-darker !default;
+$nav-tabs-active-link-hover-color:          $gray !default;
+$nav-tabs-active-link-hover-border-color:   #ddd !default;
+
+
+
+// Pagination
+// -------------------------
+
+
+// Pager
+// -------------------------
+
+
+// Jumbotron
+// -------------------------
+
+
+// Form states and alerts
+// -------------------------
+
+
+// Tooltips
+// -------------------------
+
+
+// Popovers
+// -------------------------
+
+
+// Labels
+// -------------------------
+
+
+// Modals
+// -------------------------
+
+
+// Alerts
+// -------------------------
+
+
+// Progress bars
+// -------------------------
+
+
+// List group
+// -------------------------
+
+
+// Panels
+// -------------------------
+
+
+// Thumbnails
+// -------------------------
+
+
+// Wells
+// -------------------------
+
+
+// Badges
+// -------------------------
+
+
+// Breadcrumbs
+// -------------------------
+
+
+// Carousel
+// ------------------------
+
+$carousel-text-shadow:                        none !default;
+$carousel-control-font-size:                  60px !default;
+
+
+
+// Close
+// ------------------------
+
+
+// Code
+// ------------------------
+
+
+// Type
+// ------------------------
+
+
+// Miscellaneous
+// -------------------------
+
+
+// Container sizes
+// --------------------------------------------------
+// ### custom grid size 'ms' added in Bootstrap fork _grid.scss + _variables.scss
+

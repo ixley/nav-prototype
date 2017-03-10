@@ -1,0 +1,21 @@
+:css
+  #prototype-settings {
+    position: absolute;
+    padding: 15px;
+    right: 30px;
+    bottom: 30px;
+    min-width: 100px;
+    min-height: 100px;
+    z-index: 50000;
+    background: rgba(220, 220, 220, .9);
+    border: 1px solid #eee;
+  }
+#prototype-settings
+  %nav
+    %p Select profile:
+    %ul.nav
+      %li= link_to 'Basic Member'    , '', query: {profile: 'member'}
+      %li= link_to 'Super Admin'     , '', query: {profile: 'super-admin'}
+      %li= link_to 'Admin as Member' , '', query: {profile: 'admin-as-member'}
+      %li= link_to 'Practitioner'    , '', query: {profile: 'practitioner'}
+      %li= link_to 'Org Admin'       , '', query: {profile: 'org-admin'}

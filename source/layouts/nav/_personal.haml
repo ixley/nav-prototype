@@ -1,0 +1,68 @@
+%ul.sidebar-nav__tabs{role: "tablist"}
+  %li.sidebar-nav__tab.active{role: "presentation"}
+    %a{"data-toggle" => "tab", href: "#main-tab", role: "tab"} Menu
+  %li.sidebar-nav__tab{role: "presentation"}
+    %a{"data-toggle" => "tab", href: "#next-tab", role: "tab"} What's Next
+.sidebar-nav__tab-content
+  #main-tab.sidebar-nav__tab-pane.active{role: "tabpanel"}
+    %nav.navigation--member
+      %ul.nav
+        %li
+          %a.has-icon.sidebar-nav__blood-draw-icon{href: "#"} Blood Draw
+        %li.active
+          %a.has-icon.sidebar-nav__lab-results-icon{href: "#"} Lab Results
+        %li
+          %a.has-icon.sidebar-nav__consultations-icon{href: "#"} Consultations
+        %li
+          %a.has-icon.sidebar-nav__health-plan-icon{href: "#"} Health Plan
+        %li.sidebar-nav__divider
+        %li
+          %a.has-icon.sidebar-nav__my-products-icon{href: "#"} My Products
+        %li
+          %a.has-icon.sidebar-nav__purchase-icon.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
+            Purchase
+            %span.caret
+          %ul.dropdown-menu.sidebar-nav__purchase-menu{role: "menu"}
+            %li
+              %a.has-icon{href: "#"} Lab Tests
+            %li
+              %a.has-icon{href: "#"} Consultations
+            %li
+              %a.has-icon{href: "#"} Supplements
+        %li
+          %a.has-icon.sidebar-nav__messages-icon{href: "#"} Messages
+        %li.sidebar-nav__divider
+        %li
+          %a.has-icon.sidebar-nav__settings-icon{href: "#"} Settings
+        %li
+          %a.has-icon.sidebar-nav__sign-out-icon{href: "#"} Sign Out
+
+
+  #next-tab.sidebar-nav__tab-pane{role: "tabpanel"}
+    %h3.whats-next__heading What's Next
+    %ul.whats-next__items
+      / %li.whats-next__item
+      /   %p.whats-next__message
+      /     You have a 20-minute consultation available to schedule.
+      /   %ul.whats-next__actions
+      /     %li.whats-next__action.whats-next__action--dismiss
+      /       %a Dismiss
+      /     %li.whats-next__action.whats-next__action--continue
+      /       %a
+      /         Schedule consultation now
+      %li.whats-next__item
+        %p.whats-next__message
+          Print your lab order and bring it with you to your blood draw on Friday, October 24th at 9:00 am
+        %ul.whats-next__actions
+          %li.whats-next__action.whats-next__action--continue
+            %a
+              Print lab order
+      -#%li.whats-next__item
+        %p.whats-next__message
+          Your lab results are in.
+        %ul.whats-next__actions
+          %li.whats-next__action.whats-next__action--dismiss
+            %a Dismiss
+          %li.whats-next__action.whats-next__action--continue
+            %a
+              View lab results

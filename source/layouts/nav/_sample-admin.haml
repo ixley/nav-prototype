@@ -1,0 +1,18 @@
+.user-badge.user-badge--primary
+  %img.user-badge__image{src: "/images/gunter.png"}
+  %p.user-badge__name Gunter with Powers
+
+#nav-drawers.sidebar-nav__group.sidebar-nav__scroll-area{role: "tablist"}
+  .sidebar-nav__panel
+    #admin-heading.sidebar-nav__heading{role: "tab"}
+      %h4.sidebar-nav__role.collapsed{"data-toggle" => "collapse", "data-parent" => "#nav-drawers", "data-target" => "#collapse-admin"}
+        Admin
+    #collapse-admin.sidebar-nav__content.collapse{role: "tabpanel"}
+      = partial "layouts/nav/admin"
+
+  .sidebar-nav__panel
+    #personal-heading.sidebar-nav__heading{role: "tab"}
+      %h4.sidebar-nav__role{"data-toggle" => "collapse", "data-parent" => "#nav-drawers", "data-target" => "#collapse-personal"}
+        Personal
+    #collapse-personal.sidebar-nav__content.collapse.in{role: "tabpanel"}
+      = partial "layouts/nav/_personal"

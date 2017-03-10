@@ -1,0 +1,573 @@
+//colors
+$white-10: rgba(#fff, 0.1);
+$purple-dark: #343953;
+$yellow-pale: #fffbf3;
+$link-blue: #009FC9;
+
+
+$sidebar-nav-width: 220px;
+$sidebar-nav-transition: 400ms;
+
+
+$sidebar-padding: 20px;
+$user-badge-height: 60px;
+$sidebar-footer-height: 40px;
+$sidebar-nav-base-color: $purple-dark;
+
+
+$divider-light: lighten($sidebar-nav-base-color, 8%);
+$divider-dark: darken($sidebar-nav-base-color, 8%);
+$divider: 1px solid $divider-light;
+$dimmer-shade: rgba(#000, 0.3);
+
+// Bootstrap overrides
+.nav .open > a {
+  &,
+  &:hover,
+  &:focus {
+    background-color: mix($sidebar-nav-base-color, #000, 75%);
+  }
+}
+
+// Show/hide user type menus
+.user-type { display: none; }
+#member    { display: block; }
+
+
+// Main
+.sidebar-nav__container {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform $sidebar-nav-transition;
+  transform: translate3d(0, 0, 0);
+}
+
+
+.sidebar-nav {
+  -webkit-font-smoothing: antialiased; // to make text more legible on dark backgrounds
+  position: relative;
+  padding: 0;
+  background-color: $sidebar-nav-base-color;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  top: 0;
+  left: 0;
+  height: 100%;
+  color: #fff;
+  transition: all $sidebar-nav-transition;
+  padding: 0;
+  top: 0;
+  width: $sidebar-nav-width;
+  .dropdown-menu { // bootstrap overrides
+    padding: 0;
+    margin: 0;
+    background-color: darken($sidebar-nav-base-color, 3%);
+    border-radius: 0;
+    border: none;
+  }
+}
+
+// User badge -- styles for all user badges in the sidebar (primary, acting-as, viewing)
+// -----------------------------------------
+// Extends base styles for .user-badge
+
+.sidebar-nav { 
+  .user-badge { 
+    padding: 10px;
+    flex-shrink: 0;
+  }
+  img.user-badge__image {
+    border-radius: 100px;
+  }
+  .user-badge--primary { // Badge for the signed-in user
+    background-color: lighten($sidebar-nav-base-color, 10%);
+    color: #fff;
+    box-shadow: 0 -1px 3px rgba(#000, .2);
+  }
+  .user-badge--acting-as {
+    border-top: 1px solid $divider-dark;
+    border-bottom: $divider;
+    background-color: lighten($sidebar-nav-base-color, 5%);
+  }
+  .user-badge--viewing {
+    border-top: 1px solid $divider-dark;
+    background-color: lighten($sidebar-nav-base-color, 5%);
+  }
+}
+
+.sidebar-nav__selected-member {
+  padding-bottom: 10px;
+}
+
+.sidebar-nav__scroll-area {
+  overflow: auto;
+  height: calc(100% - #{$user-badge-height} - #{$sidebar-footer-height});
+}
+.sidebar-nav__panel {
+  border-top: 1px solid $divider-dark;
+  & + .sidebar-nav__panel {
+    margin-top: -1px;
+  }
+}
+
+
+// Sidebar Nav Footer
+// ======================================
+
+.sidebar-nav__footer {
+  height: 40px;
+  width: 100%;
+  border-top: $divider;
+  box-shadow: 0 -2px 10px $sidebar-nav-base-color;
+  // position: absolute;
+  bottom: 0;
+  flex-shrink: 0;
+  background-color: $sidebar-nav-base-color;
+  .wellnessfx-hearts {
+    // background-image: image-url("global-nav/wellnessfx-brandmark.svg");
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2230%22%20height%3D%2218%22%20viewBox%3D%220%200%2030%2018%22%3E%0A%20%20%3Cpath%20fill%3D%22%23FFF%22%20fill-rule%3D%22evenodd%22%20d%3D%22M29.985%204.936l-.006-.098-.004-.075c-.002-.05-.004-.095-.008-.14C29.728%201.99%2027.588%200%2024.996%200c-1.398%200-2.743.61-3.69%201.672-.2.205-.44.46-.716.754-.07.073-.09.18-.053.276.225.58.368%201.182.424%201.79.007.073.01.146.013.22l.003.06.003.056c.006.103.072.193.167.23.028.01.058.014.087.014.07%200%20.136-.028.185-.08l.433-.467c.46-.495.834-.892%201.112-1.18l.033-.033.032-.037c.514-.576%201.212-.893%201.966-.893%201.37%200%202.508%201.05%202.65%202.445v.018c0%20.042.003.084.005.11l.008.127.002.04c0%20.726-.278%201.41-.78%201.922-1.13%201.155-4.694%205.092-6.718%207.336-.667-.74-1.555-1.723-2.475-2.737-.048-.053-.115-.083-.186-.083-.07%200-.138.03-.186.082-.392.426-.814.888-1.247%201.363-.092.1-.092.255%200%20.356%201.643%201.812%203.183%203.524%203.475%203.85l.02.02.045.04c.15.14.35.22.555.22.207%200%20.406-.08.562-.226l.058-.055.015-.016c.64-.713%206.302-7.005%207.73-8.465.947-.967%201.466-2.252%201.464-3.618v-.005c.002-.005.002-.01.002-.015%200-.053-.004-.104-.007-.156zm-10.34-.097c-.004-.073-.004-.145-.01-.216C19.397%202.03%2017.263%200%2014.662%200c-1.463%200-2.776.647-3.69%201.672-.313.324-.704.74-1.143%201.212-.44-.473-.832-.89-1.146-1.213C7.77.648%206.46%200%204.996%200%202.396%200%20.262%202.03.024%204.622c-.01.092-.01.184-.014.276-.002.07-.01.137-.01.207C-.002%206.42.486%207.73%201.463%208.73c1.53%201.563%207.8%208.54%207.8%208.54.153.133.35.22.566.22.216%200%20.412-.087.56-.226.005.006%206.274-6.97%207.805-8.535.977-1%201.464-2.31%201.463-3.618%200-.097-.01-.185-.013-.273zm-3.098%202.204c-1.155%201.18-4.822%205.234-6.718%207.336-1.896-2.102-5.563-6.156-6.718-7.336-.5-.51-.775-1.184-.78-1.907L2.34%205l.003-.095c0-.022%200-.045.002-.06.13-1.404%201.27-2.463%202.65-2.463.754%200%201.452.317%201.967.894l.03.034.032.033c.295.306.67.703%201.114%201.18l1.69%201.82%201.69-1.818c.456-.49.83-.886%201.114-1.18l.032-.033.032-.036c.514-.576%201.213-.894%201.966-.894%201.373%200%202.508%201.045%202.65%202.445v.018l.005.11.007.133.003.034c0%20.726-.278%201.41-.78%201.922z%22/%3E%0A%3C/svg%3E%0A');
+    opacity: .7;
+    background-position: 15px center;
+    position: absolute;
+    left: 0;
+    width: 50px;
+    height: 40px;
+  }
+  .help-links {
+    position: absolute;
+    right: 0;
+  }
+  .help-links__toggle {
+    padding: 10px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px !important; // heavy-handed override
+    .caret.up {
+      margin-right: 8px;
+      bottom: .3em;
+      border-left: 4px solid transparent;
+      border-top: 4px solid transparent;
+      border-right: 4px solid transparent;
+      border-bottom: 4px solid;
+      margin-bottom: .3em;
+    }
+  }
+  .help-links__menu {
+    border-top: 1px solid $divider-dark;
+    border-bottom: 1px solid $divider-dark;
+    box-shadow: 0 0px 20px rgba(0, 0, 0, 0.2);
+    width: $sidebar-nav-width;
+    top: auto;
+    bottom: 100%;
+    right: 0;
+    left: auto;
+  }
+}
+
+.sidebar-nav__role {
+  margin: 0;
+  position: relative;
+  font-weight: bold;
+  letter-spacing: 1px;
+  font-size: 13px;
+  display: block;
+  padding: 10px;
+  height: 40px;
+  text-decoration: none;
+  border-bottom: 1px solid $divider-dark;
+  color: rgba(#fff, .7);
+  line-height: 20px; // height - padding
+  cursor: pointer;
+  background-color: lighten($sidebar-nav-base-color, 10%);
+  &::before,
+  &::after {
+    content: "";
+    display: block;
+    width: 35px;
+    height: 39px;
+  }
+  &::before {
+    float: left;
+    margin: -10px 10px -10px -10px;
+    background-color: rgba(#000, .1);
+  }
+  &::after {
+    // background-image: image-url("global-nav/drawer-arrow.svg");
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%227%22%20height%3D%2210%22%20viewBox%3D%220%200%207%2010%22%3E%0A%20%20%3Cpath%20fill%3D%22%23FFF%22%20fill-rule%3D%22evenodd%22%20d%3D%22M6.2%205.81c.494-.406.497-1.123.007-1.533L1.83.26C1.378-.115.685-.08.28.34-.124.764-.086%201.41.365%201.79L4%205%20.387%208.206c-.455.373-.5%201.02-.1%201.446.4.425%201.094.467%201.55.093L6.2%205.81z%22/%3E%0A%3C/svg%3E%0A');
+    background-position: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: rotate(90deg);
+    transition: transform 200ms;
+  }
+  &:hover {
+    color: #fff;
+    background-color: rgba(#000, 0.25);
+  }
+  &.collapsed {
+    background-color: lighten($sidebar-nav-base-color, 2%);
+    &::after {
+      transform: rotate(0deg);
+    }
+    &:hover {
+      background-color: rgba(#000, 0.25);
+    }
+  }
+}
+
+.sidebar-nav__tab-pane {
+  margin-bottom: 25px;
+}
+
+
+.sidebar-nav__divider {
+  margin: 10px 15px;
+  border-top: $divider;
+}
+
+
+// Navigation Icons
+// ======================================
+// #TODO: Sprite & optimize these!
+
+// .sidebar-nav__blood-draw-icon::before    { background-image: image-url("global-nav/blood-draw-icon.svg"); }
+// .sidebar-nav__lab-results-icon::before   { background-image: image-url("global-nav/lab-results-icon.svg"); }
+// .sidebar-nav__consultations-icon::before { background-image: image-url("global-nav/consultations-icon.svg"); }
+// .sidebar-nav__my-products-icon::before   { background-image: image-url("global-nav/my-products-icon.svg"); }
+// .sidebar-nav__health-plan-icon::before   { background-image: image-url("global-nav/health-plan-icon.svg"); }
+// .sidebar-nav__my-products-icon::before   { background-image: image-url("global-nav/my-products-icon.svg"); }
+// .sidebar-nav__purchase-icon::before      { background-image: image-url("global-nav/purchase-icon.svg"); }
+// .sidebar-nav__messages-icon::before      { background-image: image-url("global-nav/messages-icon.svg"); }
+// .sidebar-nav__settings-icon::before      { background-image: image-url("global-nav/settings-icon.svg"); }
+// .sidebar-nav__sign-out-icon::before      { background-image: image-url("global-nav/sign-out-icon.svg"); }
+
+.sidebar-nav__blood-draw-icon::before    { background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%3E%0A%20%20%3Cpath%20fill%3D%22%23FFF%22%20fill-rule%3D%22evenodd%22%20d%3D%22M8%208.468V18c0%202.21%201.795%204%204%204%202.21%200%204-1.794%204-4V8.468h.49c.282%200%20.51-.23.51-.506V6.474c0-.28-.228-.506-.51-.506H7.51c-.282%200-.51.23-.51.506v1.488c0%20.28.228.506.51.506H8zM8.157%202c-.27%200-.49.214-.49.505v.99c0%20.28.214.505.49.505h7.686c.27%200%20.49-.214.49-.505v-.99c0-.28-.214-.505-.49-.505H8.157zm1.64%207c-.414%200-.75.333-.75.752v8.496c0%20.415.334.752.75.752.415%200%20.75-.333.75-.752V9.752c0-.415-.332-.752-.75-.752z%22/%3E%0A%3C/svg%3E%0A'); }
+.sidebar-nav__lab-results-icon::before   { background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%3E%0A%20%20%3Cpath%20fill%3D%22%23FFF%22%20fill-rule%3D%22evenodd%22%20d%3D%22M16%2014.003c0-.554.443-1.003%201.01-1.003h1.98c.558%200%201.01.438%201.01%201.003v4.994C20%2019.55%2019.557%2020%2018.99%2020h-1.98c-.558%200-1.01-.438-1.01-1.003v-4.994zm-6-6.996C10%206.45%2010.443%206%2011.01%206h1.98C13.55%206%2014%206.45%2014%207.007v11.986C14%2019.55%2013.557%2020%2012.99%2020h-1.98c-.558%200-1.01-.45-1.01-1.007V7.007zm-6%204.99c0-.55.443-.997%201.01-.997h1.98c.558%200%201.01.446%201.01.998v7.004c0%20.55-.443.998-1.01.998H5.01C4.45%2020%204%2019.554%204%2019.002v-7.004z%22/%3E%0A%3C/svg%3E%0A'); }
+.sidebar-nav__consultations-icon::before { background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%3E%0A%20%20%3Cpath%20fill%3D%22%23FFF%22%20fill-rule%3D%22evenodd%22%20d%3D%22M12.892%208.532c-.586%200-1.06-.48-1.06-1.07%200-.593.474-1.072%201.06-1.072.586%200%201.06.48%201.06%201.07%200%20.592-.474%201.072-1.06%201.072m3.17%200c-.587%200-1.062-.48-1.062-1.07%200-.593.475-1.072%201.06-1.072.587%200%201.062.48%201.062%201.07%200%20.592-.475%201.072-1.06%201.072m3.168%200c-.586%200-1.06-.48-1.06-1.07%200-.593.474-1.072%201.06-1.072.586%200%201.06.48%201.06%201.07%200%20.592-.474%201.072-1.06%201.072m-3.26-6.534c-3.323%200-6.018%202.373-6.018%205.3%200%201.24.483%202.38%201.292%203.282L9.77%2013.116l4.043-.87c.67.228%201.398.352%202.158.352%203.326%200%206.02-2.373%206.02-5.3%200-2.927-2.694-5.3-6.02-5.3zM5.037%204.388C3.98%204.494%202.393%206.4%202.016%207.952c.173%201.258.533%202.574%201.344%204.213.78%201.574%202.153%204.092%203.95%205.824%202.48%202.387%205.44%203.81%205.84%204.012%202.233-.037%203.735-1.35%204.144-2.186.126-.99-1.86-3.388-3.6-4.078-.097-.04-.196-.057-.296-.057-.633%200-1.313.74-1.847%201.808-1.893-.123-2.712-1.4-3.83-2.724-1.115-1.325-1.985-3.198-1.7-4.126%201.01-.228%201.895-.75%202.19-1.8-.024-1.13-1.774-4.19-3.174-4.45z%22/%3E%0A%3C/svg%3E%0A'); }
+.sidebar-nav__my-products-icon::before   { background-image: image-url("global-nav/my-products-icon.svg"); }
+.sidebar-nav__health-plan-icon::before   { background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%3E%0A%20%20%3Cpath%20fill%3D%22%23FFF%22%20fill-rule%3D%22evenodd%22%20d%3D%22M3.75%206v12.94c0%20.555.44%201.004%201.007%201.004h14.486c.556%200%201.007-.446%201.007-1.004V6H3.75zm-2-1.1v14.04c0%201.66%201.34%203.004%203.007%203.004h14.486c1.66%200%203.007-1.34%203.007-3.004V4.9c0-1.662-1.34-3.005-3.007-3.005H4.757c-1.66%200-3.007%201.34-3.007%203.004zm7.586%2011.123c.706%201%202.05%201.043%202.8.08l4.815-6.182c.34-.435.263-1.063-.173-1.402-.436-.34-1.064-.262-1.403.174L10.85%2014.65l-1.92-2.673c-.318-.45-.942-.56-1.393-.24-.452.318-.56.94-.24%201.393l2.04%202.893z%22/%3E%0A%3C/svg%3E%0A'); }
+.sidebar-nav__my-products-icon::before   { background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%3E%0A%20%20%3Cpath%20fill%3D%22%23FFF%22%20fill-rule%3D%22evenodd%22%20d%3D%22M4%209.468v9.994c0%20.28.226.506.496.506h15.008c.274%200%20.496-.22.496-.506V9.468H4zM9.99%2011c-.546%200-.99.444-.99%201%200%20.552.45%201%20.99%201h4.02c.546%200%20.99-.444.99-1%200-.552-.45-1-.99-1H9.99zM3.5%204.968c-.276%200-.5.216-.5.495v2.01c0%20.273.228.495.5.495h17c.276%200%20.5-.216.5-.495v-2.01c0-.273-.228-.495-.5-.495h-17z%22/%3E%0A%3C/svg%3E%0A'); }
+.sidebar-nav__purchase-icon::before      { background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%3E%0A%20%20%3Cpath%20fill%3D%22%23FFF%22%20fill-rule%3D%22evenodd%22%20d%3D%22M9.134%2018.122h6.44c-.35.276-.575.703-.575%201.182%200%20.83.672%201.5%201.5%201.5s1.5-.67%201.5-1.5c0-.48-.225-.906-.575-1.18h.314c.55%200%201-.448%201-1%200-.553-.45-1-1-1H9.21c-.396%200-.477-.12-.33-.487l.24-.605c.21-.528.345-.863.438-1.095.136.043.274.067.41.067h7.194c.553%200%201.198-.407%201.436-.902l2.98-6.196c.24-.498-.01-.902-.566-.902H7.627c-.027-.047-.058-.092-.094-.136l-.77-.94c-.453-.552-1.298-.95-2.02-.95H3c-.552%200-1%20.448-1%201s.448%201%201%201h1.744c.123%200%20.4.13.473.22l.603.735%202.333%205.245c-.06.076-.11.16-.15.256l-.74%201.857-.24.606c-.495%201.238-.057%202.402.93%202.93-.706.122-1.243.737-1.243%201.478%200%20.83.67%201.5%201.5%201.5.828%200%201.5-.67%201.5-1.5%200-.48-.226-.907-.576-1.182z%22/%3E%0A%3C/svg%3E%0A'); }
+.sidebar-nav__messages-icon::before      { background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%3E%0A%20%20%3Cpath%20fill%3D%22%23FFF%22%20fill-rule%3D%22evenodd%22%20d%3D%22M9%2016H5.498C5.22%2016%205%2015.776%205%2015.5v-10c0-.27.223-.5.498-.5h13.004c.278%200%20.498.224.498.5v10c0%20.27-.223.5-.498.5H15v.5c0%20.82-.67%201.5-1.5%201.5h-3c-.835%200-1.5-.672-1.5-1.5V16zM3.993%203C3.445%203%203%203.445%203%203.993v16.014c0%20.548.445.993.993.993h16.014c.548%200%20.993-.445.993-.993V3.993c0-.548-.445-.993-.993-.993H3.993z%22/%3E%0A%3C/svg%3E%0A'); }
+.sidebar-nav__settings-icon::before      { background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%3E%0A%20%20%3Cpath%20fill%3D%22%23FFF%22%20fill-rule%3D%22evenodd%22%20d%3D%22M5.506%209.647c-.053.13-.2.283-.32.34l-1.964.92c-.122.058-.222.21-.222.347v1.492c0%20.134.102.29.22.342l1.945.88c.12.054.264.21.312.332l.293.74c.05.13.052.334%200%20.466l-.744%201.872c-.052.128-.017.315.08.42l1.06%201.164c.096.104.277.144.397.092l1.986-.86c.123-.052.333-.044.452.013l.724.347c.126.06.273.21.333.342l.843%201.87c.058.13.212.234.348.234h1.498c.134%200%20.29-.105.34-.225l.86-1.99c.054-.124.198-.265.327-.317l.62-.252c.128-.05.338-.048.462.003l2.047.836c.128.053.314.016.42-.084l1.155-1.105c.103-.1.14-.288.088-.412l-.88-2.052c-.056-.128-.06-.327%200-.47l.228-.55c.054-.132.205-.29.328-.348l2.027-.963c.127-.06.23-.215.23-.352v-1.492c0-.134-.106-.29-.227-.344l-2.007-.9c-.125-.057-.268-.205-.322-.337l-.26-.636c-.053-.128-.055-.338-.008-.458l.778-1.99c.048-.123.012-.3-.085-.4l-1.062-1.086c-.095-.097-.276-.134-.412-.08l-1.93.783c-.133.052-.347.048-.463-.003l-.71-.316c-.122-.053-.267-.2-.327-.333l-.845-1.892c-.057-.13-.214-.235-.356-.235H11.21c-.14%200-.298.104-.35.224l-.876%201.982c-.054.123-.2.262-.334.313l-.64.24c-.13.048-.34.05-.463.005l-2.03-.73c-.125-.046-.302-.013-.41.088l-1.02.967c-.098.094-.138.28-.09.403l.777%202.052c.048.128.046.334-.008.466l-.26.637zM14.924%2012c0%201.652-1.31%202.99-2.924%202.99-1.615%200-2.925-1.338-2.925-2.99%200-1.652%201.31-2.992%202.925-2.992%201.615%200%202.924%201.34%202.924%202.992z%22/%3E%0A%3C/svg%3E%0A'); }
+.sidebar-nav__sign-out-icon::before      { background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%3E%0A%20%20%3Cpath%20fill%3D%22%23FFF%22%20fill-rule%3D%22evenodd%22%20d%3D%22M7.142%2013L9.7%2015.375c.4.372.4.974%200%201.346-.4.373-1.05.373-1.45%200l-3.654-3.39c-.796-.74-.795-1.95.005-2.693L8.22%207.28c.4-.373%201.05-.373%201.45%200%20.4.37.4.973%200%201.345L7.11%2011h7.892c.56.026%201.017.472.998%201%20.024.577-.43%201.026-1%201H7.142zM19%2020c1.13%200%202-.88%202-2V6c0-1.117-.868-2-2-2h-4.022c-.54%200-.978.442-.978%201%200%20.53.502%201%201%201h4v12h-4c-.623%200-1%20.377-1%201s.492%201%20.978%201H19z%22/%3E%0A%3C/svg%3E%0A'); }
+
+
+.sidebar-nav__content {
+  nav {
+    ul.nav {
+      list-style: none;
+      margin: 0;
+    }
+  }
+}
+.sidebar-nav ul.nav {
+  li.active {
+    a {
+      background-color: #222;
+      color: #fff;
+    }
+    &.active .has-icon::before {
+      opacity: 1;
+    }
+  }
+  a {
+    display: block;
+    padding-left: $sidebar-padding;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: rgba(#fff, .9);
+    font-size: 16px;
+    line-height: 24px;
+    text-decoration: none;
+    transition: padding 200ms;
+    transition: background-color 150ms;
+    &.has-icon::before {
+      display: block;
+      float: left;
+      content: "";
+      width: 24px;
+      height: 24px;
+      margin-left: -5px;
+      margin-right: 10px;
+      opacity: .7;
+    }
+    &.has-icon:hover::before {
+      opacity: 1;
+    }
+    &:hover, &:focus {
+      color: #fff;
+      background-color: rgba(#000, 0.25);
+      text-decoration: none;
+    }
+    &:active {
+      text-decoration: none;
+    }
+  }
+}
+
+.sidebar-nav__purchase-menu {
+  position: relative;
+  float: none;
+  width: 100%;
+  box-shadow: 0 0 5px rgba(#000, .3) inset;
+  background-color: $sidebar-nav-base-color;
+}
+
+
+// Tab styles
+// ======================================
+
+.sidebar-nav__tabs {
+  display: none; // hide by default, show for media query below
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.sidebar-nav__tab {
+  width: 50%;
+  text-align: center;
+  a {
+    display: block;
+    text-decoration: none;
+    height: 40px;
+    background-color: lighten($sidebar-nav-base-color, 10%);
+    border-color: $divider-dark;
+    border-style: solid;
+    border-top-width: 0;
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    border-left-width: 0;
+    margin: 0;
+    padding: 10px;
+    color: rgba(#fff, .6);
+    font-weight: bold;
+    line-height: 20px; // height - padding
+    &:hover {
+      background-color: lighten($sidebar-nav-base-color, 5%);
+    }
+  }
+  &:nth-child(2) a {
+    border-right-width: 0;
+    border-left-width: 0;
+  }
+  &.active a {
+    border-top-width: 1px;
+    border-bottom-width: 0;
+    background-color: transparent;
+    color: #fff;
+  }
+}
+.sidebar-nav__tab-content { padding-top: 10px; 
+}
+
+
+// What's Next section 
+// ======================================
+
+.whats-next__heading {
+  display: block;
+  font-weight: bold;
+  height: 30px;
+  vertical-align: middle;
+  margin: 0;
+  padding: 10px $sidebar-padding 6px;
+  text-transform: uppercase;
+  font-size: 11px;
+  line-height: 12px;
+  letter-spacing: 2px;
+  color: rgba(#fff, .8);
+}
+.whats-next__items {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  overflow: hidden;
+}
+.whats-next__item {
+  border-bottom: $divider;
+  position: relative;
+  width: 200%;
+  overflow: hidden;
+  display: flex;
+  transition: margin 200ms;
+  &:first-child {
+    border-top: $divider;
+  }
+  &:hover, &.hover {
+    margin-left: -100%;
+  }
+}
+.whats-next__message,
+.whats-next__actions {
+  /* transition: left 200ms; */
+  align-items: stretch;
+  align-content: stretch;
+  width: $sidebar-nav-width;
+}
+.whats-next__message {
+  display: flex;
+  padding: 15px 15px 15px 20px;
+  margin: 0;
+}
+.whats-next__actions {
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+
+.whats-next__action {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  a {
+    align-items: center;
+    padding: 15px;
+    display: flex;
+    cursor: pointer;
+    text-decoration: none;
+    color: #fff;
+    transition: background .15s;
+  }
+  &.whats-next__action--dismiss {
+    width: 45px;
+    flex-shrink: 0;
+    a {
+      width: 100%;
+      text-indent: -100em;
+      overflow: hidden;
+      background-color: darken($sidebar-nav-base-color, 5%);
+      background-image: image-url("global-nav/whats-next/dismiss-icon.svg");
+      background-position: center;
+      background-size: 12px 12px;
+      .no-touch &:hover {
+        background-color: #ff4921; // alert red - #reference or create variable
+      }
+      &:active {
+        background-color: darken($sidebar-nav-base-color, 10%);
+      }
+    }
+  }
+  &.whats-next__action--continue {
+    flex: auto;
+    a {
+      padding-right: 30px;
+      width: 100%;
+      background-image: image-url("global-nav/whats-next/continue-icon.svg");
+      background-position: right 12px center;
+      transition: background 100ms;
+      .no-touch &:hover, .touch & {
+        background-color: $link-blue;
+        background-position: right 10px center;
+      }
+    }
+  }
+}
+
+
+
+
+// Vertical collapsing -------------------
+
+@media(max-height: $vertical-breakpoint - 1){
+  .sidebar-nav__tabs { // show tabs
+    display: flex;
+  }
+  .sidebar-nav__tab-pane { 
+    display: none; // hide tab content by default
+    &.active {
+      display: block;
+    }
+  }
+  .sidebar-nav__content ul.nav a { // consider setting a different breakpoint for scaling down link height
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+}
+
+
+
+html,
+body,
+#page-wrapper,
+.page-content-wrapper,
+.nav-toggle__dimmer,
+.page-content {
+  height: 100%;
+}
+#page-wrapper {
+  display: flex;
+  overflow: hidden;
+}
+
+.sidebar-nav__container {
+  height: 100%;
+  transition: transform $sidebar-nav-transition;
+  transform: translate3d(0, 0, 0);
+}
+
+
+.page-content-wrapper {
+  flex: 1;
+  transition: transform $sidebar-nav-transition;
+}
+
+
+// Defaults ----------------------------
+
+.page-content {
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background-color: #fff;
+  position: relative;
+}
+.page-content-inner { // not sure this is necessary
+  position: relative;
+}
+
+
+
+// Navbar + content slide ----------------------------------------------
+// Only toggle/hide nav for tablet sized screens and smaller
+
+
+@media (max-width: $nav-breakpoint){ // Collapsed screen size
+  
+  // ----------
+  // .nav-toggle styles in _fixed-nav-bar.scss
+  // -----------------------------------------
+
+  .sidebar-nav__container {
+    position: absolute;
+    transform: translate3d(-50%, 0, 0);
+    &::after {
+      display: none;
+    }
+  }
+  .sidebar-nav--open { // & nav is OPEN
+    .page-content-wrapper { 
+      transform: translate3d($sidebar-nav-width, 0, 0); 
+    }
+    .sidebar-nav__container {
+      transform: translate3d(0, 0, 0); 
+    }
+    .nav-toggle__dimmer {
+      width: 100%;
+      height: 100%;
+      opacity: 1;
+      transition: opacity $sidebar-nav-transition;
+    }
+  }
+}
+.page-content-inner { padding: 15px 30px; }
+
+// Fallbacks
+.no-csstransforms3d .page-content { padding-left: $sidebar-nav-width; }
+.no-js .page-content              { padding-left: $sidebar-nav-width; }
+
+
+

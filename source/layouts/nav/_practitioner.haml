@@ -1,0 +1,22 @@
+%nav.navigation--practitioner
+  %ul.nav
+    %li
+      %a{:href => "#"} Consultations
+    %li
+      %a{:href => "#"} Members
+    %li
+      %a{:href => "#"} Messages
+
+.sidebar-nav__selected-member
+  .user-badge.user-badge--viewing
+    %img.user-badge__image{src: "/images/finn.png", width: "30px", height: "30px"}
+    %p.user-badge__name 
+      %span.user-badge__label Viewing:
+      Finn the Member
+
+  %nav.navigation--member
+    %ul.nav
+      %li.active
+        %a.has-icon.sidebar-nav__lab-results-icon{href: "#"} Lab Results
+      %li
+        %a.has-icon.sidebar-nav__health-plan-icon{href: "#"} Health Plan

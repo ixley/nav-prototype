@@ -1,0 +1,133 @@
+// Fixed nav bar
+// This is the nav container that holds the .nav-toggle and sticky subnav content on select pages
+
+.fixed-top-bar {
+  // only appears when display collapses for off-canvas navbar OR nested subnav jumps to affixed
+  // consider using a state class to control visibility instead of contextual styling... (.is-visible)
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: $zindex-static-top-nav;
+  box-shadow: 0 5px 10px rgba(#000, .3); // use same or similar shadow to 'marker detail panel'
+  transition: transform 400ms; // same as $sidebar-nav-transition: 400ms;
+  transform: translate3d(0, -100%, 0); // hide nav container by default
+  &.is-visible {
+    transform: translate3d(0, 0, 0);
+  }
+}
+.fixed-top-bar__container {
+  display: flex;
+  background-color: rgba($gray-pale, .97); // consider using same bg color as 'marker detail panel'
+  min-height: 45px; // unnecessary?
+}
+// trigger in sync with .sidebar-nav
+
+.page-content {
+  padding-top: 40px; // add padding to adjust for starting position // min-height for .nav-toggle
+}
+@media (max-width: $nav-breakpoint - 1){
+  .fixed-top-bar {
+    transform: translate3d(0, 0, 0);
+  }
+  .page-content {
+    padding-top: 70px; // add padding to adjust for starting position // min-height for .nav-toggle
+  }
+}
+
+
+.fixed-top-bar__container > * { // default style for items in .fixed-top-bar
+  border-right: 1px solid $gray-border;
+  display: flex;
+}
+.fixed-top-bar__btn { // default style for buttons in .fixed-top-bar
+  border: none;
+  min-height: 100%;
+  padding: 10px 15px;
+  background-color: transparent;
+  &:hover,
+  &:active {
+    background-color: $gray-lighter;
+  }
+  &.is-active {
+    background-color: $gray-light;
+  }
+}
+
+
+// Nav toggle button
+// -----------------------------------------
+
+@media (min-width: $nav-breakpoint + 1){
+  .nav-toggle         { display: none; }
+  .nav-toggle__dimmer { display: none; }
+}
+
+@media (max-width: $nav-breakpoint){ // Collapsed screen size
+  .nav-toggle { 
+    display: flex; 
+    border-right: 1px solid $gray-border;
+  }
+  .nav-toggle__dimmer {
+    position: fixed;
+    display: block;
+    z-index: $zindex-page-dimmer;
+    top: 0;
+    right: 0;
+    width: 0;
+    height: 0;
+    background-color: $dimmer-shade;
+    opacity: 0;
+    transition: opacity $sidebar-nav-transition, width 100ms $sidebar-nav-transition, height 100ms $sidebar-nav-transition;
+  }
+}
+
+.nav-toggle__btn {
+  background-image: image-url("global-nav/nav-toggle-icon.svg");
+  background-position: center 12px;
+  text-align: center;
+  padding: 40px 10px 5px;
+  font-size: 12px;
+  font-weight: bold;
+  line-height: 1;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: $purple-dark;
+  min-width: 70px;
+}
+
+
+// User badge 
+// -----------------------------------------
+// Extends base styles for .user-badge
+
+.fixed-top-bar {
+  .user-badge {
+    min-width: 220px;
+    background-color: #fff;
+    padding-right: 15px;
+    border-right: 1px solid $gray-border;
+    cursor: pointer; // to toggle .medical-profile-box
+    &:hover {
+      background-color: $gray-lighter;
+    }
+  }
+  .user-badge__name {
+    font-size: 16px;
+    color: $gray-dark;
+  }
+  .user-badge__label {
+    font-weight: normal;
+  }
+  .user-badge__image {
+    margin: -10px 15px -10px -10px;
+    box-shadow: 0 0 1px rgba(#000, .3);
+  }
+  @media (min-width: $nav-breakpoint + 1){ 
+    // hide 
+    .user-badge {
+      display: none;
+      &.user-badge--viewing { display: flex; }
+    }
+  }
+}

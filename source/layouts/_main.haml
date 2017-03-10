@@ -1,0 +1,74 @@
+/ Page content 
+
+%h2 Lab Results
+%ul.list-inline.options
+  %li.display
+    %p Display as:
+    .btn-group
+      %button.active.btn.btn-default{:type => "button"} Summary
+      %button.btn.btn-default{:type => "button"} Table
+  %li.showing
+    %p Showing:
+    .btn-group
+      %button.active.btn.btn-default{:type => "button"} All
+      %button.btn.btn-default{:type => "button"} Most Recent
+  %li.actions
+    %p Actions:
+    .btn-group
+      .btn-group
+        %button.btn.btn-default.dropdown-toggle{"data-toggle" => "dropdown", :type => "button"}
+          Add Lab Report
+          %span.caret
+        %ul.dropdown-menu
+          %li
+            %a{:href => "#"} Add Lab Results
+          %li
+            %a{:href => "#"} Blue Button Upload
+      .btn-group
+        %button.btn.btn-default.dropdown-toggle{"data-toggle" => "dropdown", :type => "button"}
+          Export
+          %span.caret
+        %ul.dropdown-menu
+          %li
+            %a{:href => "#"} Download CSV
+          %li
+            %a{:href => "#"} Download XLSX
+      .btn-group
+        %button.btn.btn-default.dropdown-toggle{"data-toggle" => "dropdown", :type => "button"}
+          Print
+          %span.caret
+        %ul.dropdown-menu
+          %li
+            %a{:href => "#"} Print Current View
+          %li
+            %a{:href => "#"} Print List View
+#fixed-nav{"data-offset-top" => "100", "data-spy" => "affix"}
+  .jump-nav
+    %ul.nav.nav-pills
+      %li.active
+        %a{:href => "#"} Vital Signs
+      %li
+        %a{:href => "#"} Cardiovascular
+      %li
+        %a{:href => "#"} Fatty Acids
+      %li
+        %a{:href => "#"} Metabolic
+      %li
+        %a{:href => "#"} Liver
+      %li
+        %a{:href => "#"} Kidney
+      %li
+        %a{:href => "#"} Electrolytes
+      %li
+        %a{:href => "#"} Bone
+      %li
+        %a{:href => "#"} Blood
+      %li
+        %a{:href => "#"} Vitamins & Minerals
+      %li
+        %a{:href => "#"} Lab Notes
+%img{:src => "/images/diagnostics-placeholder-cropped.png"}/
+
+
+
+

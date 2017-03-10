@@ -1,0 +1,12 @@
+$nav-breakpoint: 980px; // $screen-sm-min; // breakpoint for when the sidebar-nav moves off-canvas // see if there's a reasonable way to caculate and apply dynamically
+$vertical-breakpoint: 760px; // breakpoint for when "What's Next" content collapses into a tab // see if there's a reasonable way to caculate and apply dynamically
+$zindex-page-dimmer: 100000; // update value: should be above all page content
+$zindex-static-top-nav: 1000; // update value: should sit above all grounded page content (excludes modals)
+
+
+
+.page-content-wrapper {
+  position: relative;
+  // overflow: hidden;
+}
+

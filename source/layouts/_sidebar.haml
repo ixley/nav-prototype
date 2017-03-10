@@ -1,0 +1,25 @@
+/ Sidebar 
+#sidebar-wrapper.sidebar-nav__container
+  .sidebar-nav
+
+    / = partial "layouts/nav/_sample-admin-as-member"
+    / = partial "layouts/nav/_sample-admin"
+    / = partial "layouts/nav/_sample-practitioner"
+    / = partial "layouts/nav/_sample-org-admin"
+    = partial "layouts/nav/_sample-member"
+
+    .sidebar-nav__footer.navbar-fixed-bottom.dropdown
+      %ul.nav
+        %li.wellnessfx-hearts
+        %li.help-links
+          %a.dropdown-toggle.help-links__toggle{"data-toggle" => "dropdown", href: "#", "aria-haspopup" => "true", "aria-expanded" => "false"}
+            Help
+            %span.caret.up
+          %ul.dropdown-menu.help-links__menu{role: "menu", "aria-labelledby" => "dLabel"}
+            %li
+              %a{href: "#"} Live Chat
+            %li
+              %a{href: "#"} Knowledge Base
+            %li
+              %a{href: "#"} Feature Requests
+

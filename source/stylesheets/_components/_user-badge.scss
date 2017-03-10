@@ -1,0 +1,29 @@
+// User Badge
+// Base styles for user badges (used in Sidebar nav and Fixed nav bar)
+// 
+
+.user-badge {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+}
+
+.user-badge__label { // "Acting as" or "Viewing"
+  display: block;
+  font-size: 11px;
+  // font-weight: normal;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: mix(#fff, $sidebar-nav-base-color, 60%);
+}
+
+img.user-badge__image {
+  display: inline-block;
+  margin-right: 10px;
+}
+.user-badge__name {
+  display: inline-block;
+  font-weight: bold;
+  font-size: 14px;
+  margin: 0;
+}

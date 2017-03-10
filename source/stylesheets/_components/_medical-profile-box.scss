@@ -1,0 +1,159 @@
+.medical-profile-box {
+  opacity: 0;
+  height: 0;
+  display: block;
+  transition: opacity 150ms;
+  position: relative;
+  overflow: hidden;
+  @include micro-clearfix;
+  &.is-visible {
+    opacity: 1;
+    height: auto;
+    display: block;
+    top: 100%;
+    right: 0;
+    left: 0;
+    background-color: rgba(#fff, .97);
+    border-top: 1px solid $gray-border;
+    border-bottom: 1px solid $gray-border;
+  }
+}
+
+.medical-profile-box__tabs {
+  display: flex;
+  @include list-unstyled;
+  margin: 0;
+  border-bottom: 1px solid $gray-border;
+}
+.medical-profile-box__tab {
+  position: relative;
+  a {
+    background-color: $gray-pale;
+    padding: 10px 15px;
+    display: block;
+    text-decoration: none;
+    color: $gray-dark;
+    border-right: 1px solid $gray-border;
+    border-bottom: 1px solid $gray-border;
+    margin-bottom: -1px;
+    white-space: nowrap;
+  }
+  &.active {
+    a {
+      background-color: #fff;
+      border-bottom-color: #fff; // background color
+      color: $gray-darker;
+    }
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 0;
+      height: 3px;
+      left: 0;
+      right: 0;
+      background-color: $teal;
+    }
+  }
+}
+
+.medical-profile-box__tab-content {
+  padding: 20px;
+}
+.medical-profile-box__tab-pane {
+  // display: none; // hidden by default
+  display: flex;
+  height: 0;
+  opacity: 0;
+  transition: opacity 250ms;
+  &.active {
+    opacity: 1;
+    height: auto;
+  }
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin-right: -20px;
+}
+.medical-profile-box__section {
+  flex: 1 1 auto;
+  padding-right: 20px;
+  margin-bottom: 1em;
+  min-width: 120px;
+  max-width: 300px;
+  ul { @include list-unstyled; }
+  li { margin-bottom: 4px; }
+  &:nth-last-child(n+2),
+  &:nth-last-child(n+2) ~ & {
+    width: 25%;
+  }
+  &:nth-last-child(n+4),
+  &:nth-last-child(n+4) ~ & {
+    width: 20%;
+  }
+  &:nth-last-child(n+5),
+  &:nth-last-child(n+5) ~ & {
+    width: 15%;
+  }
+
+}
+
+.medical-profile-box__section-heading {
+  font-size: 18px;
+  border-bottom: 3px solid $gray-light;
+  margin: 0 0 10px;
+  padding-left: 3px; // to align with list entry text
+}
+
+.medical-profile-box__label {
+  color: $gray-dark;
+  display: inline-block;
+  padding-left: 3px; // to align with wrapped text
+  min-width: 5em; // approximation based on content. open to better, lightweight way to left align values...
+}
+
+.medical-profile-box__value {
+  display: inline-block;
+  background-color: $gray-lighter;
+  padding: 3px 5px;
+  border-radius: 2px;
+  color: $gray-dark;
+  font-weight: bold;
+}
+
+
+// Label customizations
+// -----------------------------------------
+
+.medical-profile-box__entry--append-label {
+  .medical-profile-box__label { 
+    display: none; 
+  }
+  &::after { // append label (from attribute) after value
+    content: "("attr(data-label)")";
+    text-transform: uppercase;
+    font-size: .8em;
+    font-weight: bold;
+    color: $gray;
+    padding-left: 3px; // to align with wrapped text
+  }
+}
+
+.medical-profile-box__entry--hide-label { // Hide the label field
+  display: inline-block;
+  .medical-profile-box__label { display: none; }
+}
+
+.medical-profile-box__entry--empty { // When there's an empty field, show the otherwise hidden label instead of the empty value
+  .medical-profile-box__label {
+    display: inline-block;
+    padding: 3px 5px;
+    border-radius: 3px;
+    border: 1px dashed $gray-border;
+    color: $gray;
+    min-width: 0; // override default label width
+  }
+  .medical-profile-box__value {
+    display: none;
+  }
+}

@@ -1,0 +1,139 @@
+.medical-profile-box
+  %ul.medical-profile-box__tabs{role: "tablist"}
+    %li.medical-profile-box__tab.active{role: "presentation"}
+      %a{"data-toggle" => "tab", href: "#medical-profile--demographics", role: "tab"} Demographics
+    %li.medical-profile-box__tab{role: "presentation"}
+      %a{"data-toggle" => "tab", href: "#medical-profile--conditions", role: "tab"} Conditions
+    %li.medical-profile-box__tab{role: "presentation"}
+      %a{"data-toggle" => "tab", href: "#medical-profile--family-history", role: "tab"} Family History
+    %li.medical-profile-box__tab{role: "presentation"}
+      %a{"data-toggle" => "tab", href: "#medical-profile--lifestyle-diet", role: "tab"} Lifestyle &amp; Diet
+  .medical-profile-box__tab-content
+    .medical-profile-box__tab-pane.active#medical-profile--demographics{role: "tabpanel"}
+      .medical-profile-box__section
+        %h6.medical-profile-box__section-heading Basic Info
+        %ul
+          %li.medical-profile-box__entry--hide-label{"data-label" => "Age"}
+            %span.medical-profile-box__label Age
+            %span.medical-profile-box__value 
+              %strong 36 yrs
+          %li.medical-profile-box__entry--hide-label{"data-label" => "Gender"}
+            %span.medical-profile-box__label Gender
+            %span.medical-profile-box__value 
+              %strong Female
+          %li.medical-profile-box__entry--hide-label.medical-profile-box__entry--empty{"data-label" => "Weight"}
+            %span.medical-profile-box__label Weight
+            %span.medical-profile-box__value
+          %li.medical-profile-box__entry--hide-label{"data-label" => "Height"}
+            %span.medical-profile-box__label Height
+            %span.medical-profile-box__value 
+              %strong 5'0"
+      .medical-profile-box__section
+        %h6.medical-profile-box__section-heading Vitals
+        %ul
+          %li.medical-profile-box__entry--append-label{"data-label" => "BMI"}
+            %span.medical-profile-box__label BMI
+            %span.medical-profile-box__value 
+              %strong 23.4
+      .medical-profile-box__section
+        %h6.medical-profile-box__section-heading Ethnicity
+        %ul
+          %li.medical-profile-box__entry--append-label{"data-label" => "Mother"}
+            %span.medical-profile-box__label Mother
+            %span.medical-profile-box__value
+              %strong Hawaiian or Pacific Islander
+          %li.medical-profile-box__entry--hide-label.medical-profile-box__entry--append-label{"data-label" => "Father"}
+            %span.medical-profile-box__label Father
+            %span.medical-profile-box__value
+              %strong Asian
+      .medical-profile-box__section
+        %h6.medical-profile-box__section-heading Family
+        %ul
+          %li.medical-profile-box__entry--hide-label
+            %span.medical-profile-box__label Status
+            %span.medical-profile-box__value 
+              %strong Married
+          %li.medical-profile-box__entry--hide-label
+            %span.medical-profile-box__label Children
+            %span.medical-profile-box__value 
+              %strong 1 child
+    .medical-profile-box__tab-pane#medical-profile--conditions{role: "tabpanel"}
+      .medical-profile-box__section
+        %h6.medical-profile-box__section-heading Chronic Conditions
+        %ul
+          %li 
+            %span.medical-profile-box__value 
+              %strong High Cholesterol
+      .medical-profile-box__section
+        %h6.medical-profile-box__section-heading Accidents
+        %ul
+          %li
+            %span.medical-profile-box__label 1964 May
+            %span.medical-profile-box__value Car Accident
+          %li
+            %span.medical-profile-box__label 1998 Aug
+            %span.medical-profile-box__value Fell off bike
+      .medical-profile-box__section    
+        %h6.medical-profile-box__section-heading Surgeries &amp; Hospitalizations
+        %span.medical-profile-box__value None      
+    .medical-profile-box__tab-pane#medical-profile--family-history{role: "tabpanel"}
+      .medical-profile-box__section
+        %h6.medical-profile-box__section-heading Cancer
+        %ul
+          %li
+            %span.medical-profile-box__value Maternal Grandfather
+      .medical-profile-box__section
+        %h6.medical-profile-box__section-heading Other
+        %ul
+          %li 
+            %span.medical-profile-box__value Type 2 Diabetes - Grandfather
+    .medical-profile-box__tab-pane.medical-profile-box__tab-pane--lifestyle-diet#medical-profile--lifestyle-diet{role: "tabpanel"}
+      .medical-profile-box__section
+        %h6.medical-profile-box__section-heading Health Goal
+        %ul
+          %li 
+            %span.medical-profile-box__value To kill a bear
+      .medical-profile-box__section    
+        %h6.medical-profile-box__section-heading Rest &amp; Stress
+        %ul
+          %li
+            %span.medical-profile-box__value
+              %strong Sleep OK, but often tired
+          %li
+            %span.medical-profile-box__value
+              %strong Medium Stress
+      .medical-profile-box__section    
+        %h6.medical-profile-box__section-heading Exercise
+        %ul
+          %li
+            %span.medical-profile-box__label Strength
+            %span.medical-profile-box__value 
+              %strong 1–2 days/week
+          %li
+            %span.medical-profile-box__label Cardio
+            %span.medical-profile-box__value 
+              %strong None
+      .medical-profile-box__section
+        %h6.medical-profile-box__section-heading Exposures
+        %ul
+          %li
+            %span.medical-profile-box__label Caffeine
+            %span.medical-profile-box__value 1-2 cups
+          %li
+            %span.medical-profile-box__label Smoking
+            %span.medical-profile-box__value Never
+          %li
+            %span.medical-profile-box__label Alcohol
+            %span.medical-profile-box__value <1/day
+          %li
+            %span.medical-profile-box__label Sunscreen
+            %span.medical-profile-box__value Most of the time
+      .medical-profile-box__section
+        %h6.medical-profile-box__section-heading Diet
+        %ul
+          %li 
+            %span.medical-profile-box__label Type
+            %span.medical-profile-box__value Vegetarian
+          %li 
+            %span.medical-profile-box__label Details
+            %span.medical-profile-box__value Gluten Free
