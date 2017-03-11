@@ -38,6 +38,7 @@ $dimmer-shade: rgba(#000, 0.3);
 .sidebar-nav__container {
   overflow: hidden;
   display: flex;
+  flex-shrink: 0;
   flex-direction: column;
   transition: transform $sidebar-nav-transition;
   transform: translate3d(0, 0, 0);
@@ -73,8 +74,8 @@ $dimmer-shade: rgba(#000, 0.3);
 // -----------------------------------------
 // Extends base styles for .user-badge
 
-.sidebar-nav { 
-  .user-badge { 
+.sidebar-nav {
+  .user-badge {
     padding: 10px;
     flex-shrink: 0;
   }
@@ -361,11 +362,11 @@ $dimmer-shade: rgba(#000, 0.3);
     color: #fff;
   }
 }
-.sidebar-nav__tab-content { padding-top: 10px; 
+.sidebar-nav__tab-content { padding-top: 10px;
 }
 
 
-// What's Next section 
+// What's Next section
 // ======================================
 
 .whats-next__heading {
@@ -476,7 +477,7 @@ $dimmer-shade: rgba(#000, 0.3);
   .sidebar-nav__tabs { // show tabs
     display: flex;
   }
-  .sidebar-nav__tab-pane { 
+  .sidebar-nav__tab-pane {
     display: none; // hide tab content by default
     &.active {
       display: block;
@@ -536,7 +537,7 @@ body,
 
 
 @media (max-width: $nav-breakpoint){ // Collapsed screen size
-  
+
   // ----------
   // .nav-toggle styles in _fixed-nav-bar.scss
   // -----------------------------------------
@@ -549,11 +550,11 @@ body,
     }
   }
   .sidebar-nav--open { // & nav is OPEN
-    .page-content-wrapper { 
-      transform: translate3d($sidebar-nav-width, 0, 0); 
+    .page-content-wrapper {
+      transform: translate3d($sidebar-nav-width, 0, 0);
     }
     .sidebar-nav__container {
-      transform: translate3d(0, 0, 0); 
+      transform: translate3d(0, 0, 0);
     }
     .nav-toggle__dimmer {
       width: 100%;
@@ -568,6 +569,3 @@ body,
 // Fallbacks
 .no-csstransforms3d .page-content { padding-left: $sidebar-nav-width; }
 .no-js .page-content              { padding-left: $sidebar-nav-width; }
-
-
-
