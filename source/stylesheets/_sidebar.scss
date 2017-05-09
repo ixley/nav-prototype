@@ -564,7 +564,10 @@ body,
     }
   }
 }
-.page-content-inner { padding: 15px 30px; }
+.page-content-inner {
+  padding: 15px 30px;
+  opacity: .3; // dim to emphasize nav
+}
 
 // Fallbacks
 .no-csstransforms3d .page-content { padding-left: $sidebar-nav-width; }
